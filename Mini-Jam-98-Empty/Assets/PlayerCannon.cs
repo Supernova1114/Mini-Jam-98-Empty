@@ -59,6 +59,7 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.constraints = RigidbodyConstraints.None;
                     playerRB.AddForce(firstPersonCam.transform.forward.normalized * cannonForce);
 
+                    //Move to third person cam
                     thirdPersonCam.Priority = 1;
                     firstPersonCam.Priority = -1;
 
