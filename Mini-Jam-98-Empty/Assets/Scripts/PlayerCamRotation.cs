@@ -25,8 +25,8 @@ public class PlayerCamRotation : MonoBehaviour
     void CubeRotate()
     {
         turn.x += Input.GetAxis("Mouse X") * sensitivity;
-        turn.y += Input.GetAxis("Mouse Y") * sensitivity;
-        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+        //turn.y += Input.GetAxis("Mouse Y") * sensitivity;
+        transform.localRotation = Quaternion.Euler(0, turn.x, 0);
     }
 
     void Move()
