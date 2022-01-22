@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerCannon : MonoBehaviour
 {
     [SerializeField]
+    private Cinemachine.CinemachineVirtualCamera thirdPersonVCam;
+    [SerializeField]
+    private Cinemachine.CinemachineVirtualCamera firstPersonVCam;
+
+    [SerializeField]
     private float cooldownInit = 2;
     private float cooldown = 0;
 
-    private Cinemachine.CinemachineFreeLook thirdPersonCam;
-    private Cinemachine.CinemachineFreeLook firstPersonCam; 
+    private Camera mainCamera;
 
     private bool inCannonState = false;
 
@@ -18,15 +22,18 @@ public class PlayerCannon : MonoBehaviour
     [SerializeField]
     private float cannonForce = 1;
 
+    private MeshRenderer meshRenderer;
+
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; //May want to put this into another script idk
 
-        thirdPersonCam = GameObject.FindGameObjectWithTag("3rdVCam").GetComponent<Cinemachine.CinemachineFreeLook>();
-        firstPersonCam = GameObject.FindGameObjectWithTag("1stVCam").GetComponent<Cinemachine.CinemachineFreeLook>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         playerRB = GetComponent<Rigidbody>();
+
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -45,8 +52,10 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.velocity = Vector3.zero;
 
                     //Move to first person cam
-                    thirdPersonCam.Priority = -1;
-                    firstPersonCam.Priority = 1;
+                    thirdPersonVCam.Priority = -1;
+                    firstPersonVCam.Priority = 1;
+
+                    meshRenderer.enabled = false;
                 }
                 else
                 {
@@ -57,11 +66,13 @@ public class PlayerCannon : MonoBehaviour
                     print("FIRE!");
 
                     playerRB.constraints = RigidbodyConstraints.None;
-                    playerRB.AddForce(firstPersonCam.transform.forward.normalized * cannonForce);
+                    playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
 
                     //Move to third person cam
-                    thirdPersonCam.Priority = 1;
-                    firstPersonCam.Priority = -1;
+                    thirdPersonVCam.Priority = 1;
+                    firstPersonVCam.Priority = -1;
+
+                    meshRenderer.enabled = true;
 
                 }
 
