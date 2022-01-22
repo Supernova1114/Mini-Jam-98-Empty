@@ -10,18 +10,13 @@ public class ProceduralGeneration : MonoBehaviour
     private const float maxScale = 10.0f;
 
     [SerializeField] private GameObject player;
-    private Vector3 planetPos;
-    private Quaternion planetRot;
-
-    public GameObject[] planets;
-    bool planetExitChunk;
+    public List<GameObject> planets;
 
     //========================================================
     //========================================================
 
     void Start()
     {
-        planetExitChunk = false;
         SpawnPlanet();
     }
 
@@ -33,7 +28,12 @@ public class ProceduralGeneration : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if(other.gameObject.tag == "Planet")
-            planetExitChunk = true;
+        {
+            Transform obj = other.gameObject.transform; 
+
+            obj.position = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
+            obj.rotation = Quaternion.Euler(GenerateRandomVector(false, 0,0));
+        }
     }
 
     //========================================================
@@ -43,42 +43,9 @@ public class ProceduralGeneration : MonoBehaviour
     {
         foreach(GameObject a in planets)
         {
-            //===   Init planet's pos & rotation   ======
-            InitPlanetSpawn(a);
-
-            //===   Instantiate obj   ====================
-            Instantiate(a, planetPos, planetRot);
-
-            //===   Init planet's properties   ===========
-            a.gameObject.tag = "Planet";
-            a.AddComponent<BoxCollider>();
+            a.transform.position = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
+            a.transform.rotation = Quaternion.Euler(GenerateRandomVector(false, 0,0));
         }
-    }
-
-
-
-    void RespawnPlanet()
-    {
-        foreach(GameObject a in planets)
-        {
-            if(planetExitChunk)
-            {
-                InitPlanetSpawn(a);
-            }
-        }
-    }
-    
-
-
-    //========================================================
-    // Init Planet spawn prop/pos/rot
-    //========================================================
-    private void InitPlanetSpawn(GameObject a)
-    {
-        planetPos = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
-        planetRot = Quaternion.Euler(GenerateRandomVector(false, 0,0));
-
-        //a.transform.localScale *= Random.Range(minScale,minScale);
     }
 
 

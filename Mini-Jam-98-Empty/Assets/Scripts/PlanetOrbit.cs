@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlanetOrbit : MonoBehaviour
 {
     private const float G = 10.0f;
-    private GameObject[] planets;
+    public List<GameObject> planets;
 
     //========================================================
     //========================================================
 
     void Start()
     {
-        planets = GameObject.FindGameObjectsWithTag("Planet");
+        //planets = GameObject.FindGameObjectsWithTag("Planet");
         ApplyGravitationalRule(true);
     }
 
@@ -30,24 +30,27 @@ public class PlanetOrbit : MonoBehaviour
         {
             foreach(GameObject b in planets)
             {
+                Vector3 a_pos = a.transform.position;
+                Vector3 b_pos = b.transform.position;
+
                 if(!a.Equals(b))
                 {
                     Rigidbody a_rb = a.GetComponent<Rigidbody>();
                     Rigidbody b_rb = b.GetComponent<Rigidbody>();
-                    Vector3 a_pos = a.transform.position;
-                    Vector3 b_pos = b.transform.position;
+
                     float r = Vector3.Distance(a_pos, b_pos);
 
                     NewtonLaw(a_rb, b_rb, a_pos, b_pos, r);
 
                     if(isOrbital)
                         CircularOrbitalSpeed(a, b, a_rb, b_rb, r);
+                        break;
                 }
             }
         }
     }
 
-    
+
 
     //========================================================
     // Using Newton's law of universal gravitation:
