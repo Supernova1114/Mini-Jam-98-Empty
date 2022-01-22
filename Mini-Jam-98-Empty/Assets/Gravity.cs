@@ -28,6 +28,6 @@ public class Gravity : MonoBehaviour
 
         playerRB.AddForce(gravityForce);
 
-        print(gravityForce.magnitude);
+        //print(gravityForce.magnitude);
     }
 }
