@@ -85,4 +85,5 @@ public class ProceduralGeneration : MonoBehaviour
 //    - Random Scale for obj
 //    - Make it so spawned obj are indipendent from parent obj (chunk)
 //    - Different mass too
+//    - Add Find tag to apply Gravitational Pull for spawned obj
 //======================================================================
