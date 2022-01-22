@@ -14,41 +14,78 @@ public class ProceduralGeneration : MonoBehaviour
     private Quaternion planetRot;
 
     public GameObject[] planets;
+    bool planetExitChunk;
 
-
+    //========================================================
+    //========================================================
 
     void Start()
     {
+        planetExitChunk = false;
         SpawnPlanet();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = player.transform.position;
     }
 
     void OnTriggerExit(Collider other)
     {
-
+        if(other.gameObject.tag == "Planet")
+            planetExitChunk = true;
     }
 
-
+    //========================================================
+    //========================================================
 
     void SpawnPlanet()
     {
         foreach(GameObject a in planets)
         {
-            planetPos = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
-            planetRot = Quaternion.Euler(GenerateRandomVector(false, 0,0));
+            //===   Init planet's pos & rotation   ======
+            InitPlanetSpawn(a);
 
+            //===   Instantiate obj   ====================
             Instantiate(a, planetPos, planetRot);
 
-            //a.transform.localScale *= Random.Range(minScale,minScale);
+            //===   Init planet's properties   ===========
+            a.gameObject.tag = "Planet";
+            a.AddComponent<BoxCollider>();
+        }
+    }
+
+
+
+    void RespawnPlanet()
+    {
+        foreach(GameObject a in planets)
+        {
+            if(planetExitChunk)
+            {
+                InitPlanetSpawn(a);
+            }
         }
     }
     
 
 
+    //========================================================
+    // Init Planet spawn prop/pos/rot
+    //========================================================
+    private void InitPlanetSpawn(GameObject a)
+    {
+        planetPos = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
+        planetRot = Quaternion.Euler(GenerateRandomVector(false, 0,0));
+
+        //a.transform.localScale *= Random.Range(minScale,minScale);
+    }
+
+
+
+    //========================================================
+    // Return random vector for pos/rot
+    //========================================================
     private Vector3 GenerateRandomVector(bool isPos, int wl, int h)
     {
         float xMin, xMax;

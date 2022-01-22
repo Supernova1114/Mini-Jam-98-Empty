@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlanetOrbit : MonoBehaviour
 {
     private const float G = 10.0f;
-    public GameObject[] planets;
+    private GameObject[] planets;
 
     //========================================================
     //========================================================
 
     void Start()
     {
-        //planets = GameObject.FindGameObjectsWithTag("Planet");
+        planets = GameObject.FindGameObjectsWithTag("Planet");
         ApplyGravitationalRule(true);
     }
 
