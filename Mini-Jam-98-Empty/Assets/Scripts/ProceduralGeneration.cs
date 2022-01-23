@@ -10,45 +10,49 @@ public class ProceduralGeneration : MonoBehaviour
     private const float maxScale = 10.0f;
 
     [SerializeField] private GameObject player;
-    private Vector3 planetPos;
-    private Quaternion planetRot;
+    public List<GameObject> planets;
 
-    public GameObject[] planets;
-
-
+    //========================================================
+    //========================================================
 
     void Start()
     {
         SpawnPlanet();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = player.transform.position;
     }
 
     void OnTriggerExit(Collider other)
     {
+        if(other.gameObject.tag == "Planet")
+        {
+            Transform obj = other.gameObject.transform; 
 
+            obj.position = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
+            obj.rotation = Quaternion.Euler(GenerateRandomVector(false, 0,0));
+        }
     }
 
-
+    //========================================================
+    //========================================================
 
     void SpawnPlanet()
     {
         foreach(GameObject a in planets)
         {
-            planetPos = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
-            planetRot = Quaternion.Euler(GenerateRandomVector(false, 0,0));
-
-            Instantiate(a, planetPos, planetRot);
-
-            //a.transform.localScale *= Random.Range(minScale,minScale);
+            a.transform.position = GenerateRandomVector(true, chunkHalfSizeXZ, chunkHalfSizeY);
+            a.transform.rotation = Quaternion.Euler(GenerateRandomVector(false, 0,0));
         }
     }
-    
 
 
+
+    //========================================================
+    // Return random vector for pos/rot
+    //========================================================
     private Vector3 GenerateRandomVector(bool isPos, int wl, int h)
     {
         float xMin, xMax;
