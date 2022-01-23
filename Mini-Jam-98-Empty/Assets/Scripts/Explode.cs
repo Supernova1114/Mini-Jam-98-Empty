@@ -7,6 +7,7 @@ public class Explode : MonoBehaviour
     public int cubesPerAxis = 3;
     public float explosionForce = 1000f;
     public float radius = 20f;
+    private int time = 10;
 
     private void OnTriggerEnter(Collider other) 
     {
@@ -43,9 +44,6 @@ public class Explode : MonoBehaviour
         rb.mass = .5f;
         rb.AddExplosionForce(explosionForce, transform.position, radius, 3.0f, ForceMode.Force);
 
-        //==============================================================
-        // Dunno how to despawn debris but its probably fine ¯\_(ツ)_/¯
-        // p.s I tried :(
-        //==============================================================
+        Object.Destroy(cube, time);
     }
 }
