@@ -24,6 +24,11 @@ public class PlayerCannon : MonoBehaviour
 
     private MeshRenderer meshRenderer;
 
+    [SerializeField]
+    private ParticleSystem rechargeParticles;
+
+    private bool rechargeFlag = false;
+
 
     void Start()
     {
@@ -34,6 +39,7 @@ public class PlayerCannon : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
 
         meshRenderer = GetComponent<MeshRenderer>();
+
     }
 
     // Update is called once per frame
@@ -42,6 +48,12 @@ public class PlayerCannon : MonoBehaviour
 
         if (cooldown <= 0)
         {
+            if (rechargeFlag)
+            {
+                rechargeFlag = false;
+                rechargeParticles.Play();
+            }
+
             if (Input.GetButtonDown("Jump"))
             {
                 if (!inCannonState)
@@ -63,7 +75,9 @@ public class PlayerCannon : MonoBehaviour
 
                     cooldown = cooldownInit;
 
-                    print("FIRE!");
+                    rechargeFlag = true;
+
+                    //print("FIRE!");
 
                     playerRB.constraints = RigidbodyConstraints.None;
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
