@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlanetOrbit : MonoBehaviour
 {
     private const float G = 10.0f;
-    public List<GameObject> planets;
+    public GameObject[] planets;
 
     //========================================================
     //========================================================
@@ -43,8 +43,9 @@ public class PlanetOrbit : MonoBehaviour
                     NewtonLaw(a_rb, b_rb, a_pos, b_pos, r);
 
                     if(isOrbital)
+                    {
                         CircularOrbitalSpeed(a, b, a_rb, b_rb, r);
-                        break;
+                    }
                 }
             }
         }

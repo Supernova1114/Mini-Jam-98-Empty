@@ -10,7 +10,7 @@ public class ProceduralGeneration : MonoBehaviour
     private const float maxScale = 10.0f;
 
     [SerializeField] private GameObject player;
-    public List<GameObject> planets;
+    public GameObject[] planets;
 
     //========================================================
     //========================================================
