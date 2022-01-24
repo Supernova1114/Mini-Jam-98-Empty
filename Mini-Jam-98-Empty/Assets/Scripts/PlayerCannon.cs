@@ -68,6 +68,8 @@ public class PlayerCannon : MonoBehaviour
                     firstPersonVCam.Priority = 1;
 
                     meshRenderer.enabled = false;
+
+                    print("ASDLAS");
                 }
                 else
                 {
@@ -87,6 +89,8 @@ public class PlayerCannon : MonoBehaviour
                     firstPersonVCam.Priority = -1;
 
                     meshRenderer.enabled = true;
+
+                    print("HE");
 
                 }
 

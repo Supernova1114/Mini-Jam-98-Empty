@@ -20,6 +20,15 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = -(playerRB.velocity.normalized * distanceFactor) + player.transform.position;
+        Vector3 temp = -(playerRB.velocity.normalized * distanceFactor) + player.transform.position;
+
+        Vector3 velocity = playerRB.velocity;
+
+        if (velocity.magnitude > 0)
+        {
+            transform.forward = velocity;
+        }
+
+        transform.position = temp;
     }
 }
