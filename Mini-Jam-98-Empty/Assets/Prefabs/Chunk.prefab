@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8225766907045439581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 38.7}
-  m_LocalScale: {x: 750, y: 250, z: 750}
+  m_LocalScale: {x: 500, y: 250, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,16 +103,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8225766907045439581}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a8de6175edb0b84dab11d9af889fc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2283845160142750291, guid: 54bbe705879b48b4cbe67799bf1c3541, type: 3}
-  planets:
-  - {fileID: 1425891777295293798, guid: da8e13f5746a5a24eb80e9a4752ecd4e, type: 3}
-  - {fileID: 3441311238018072457, guid: 1fb4d804b1415ec4591c963ef47974b4, type: 3}
-  - {fileID: 1097881711896264028, guid: 3fb6c3f1289204f4f8734457ae80147e, type: 3}
-  - {fileID: 6441164523982879800, guid: 69ff37141b85bdc4daf3990e3ff2dbb4, type: 3}
-  - {fileID: 6734828143762760428, guid: ba1f0997b06713444bffa128950dd65e, type: 3}
-  - {fileID: 5373540797972000737, guid: 928311de66dea4e42b9900e84847e441, type: 3}
+  player: {fileID: 0}

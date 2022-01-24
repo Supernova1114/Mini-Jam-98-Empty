@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlanetRotation : MonoBehaviour
 {
-    public int spinSpeed = 1;
+    public int x_speed = 0;
+    public int y_speed = 0;
+    public int z_speed = 0;
 
     // Probably switch to Start() later on
     void Update()
     {
-        transform.Rotate(0, spinSpeed, 0);
+        transform.Rotate(x_speed, y_speed, z_speed);
     }
 }
