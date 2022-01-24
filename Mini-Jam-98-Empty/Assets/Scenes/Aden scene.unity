@@ -5079,7 +5079,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795336, y: 1}
+    m_SensorSize: {x: 1.7772622, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -5602,7 +5602,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795336, y: 1}
+    m_SensorSize: {x: 1.7772622, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5626,27 +5626,6 @@ Transform:
   m_Father: {fileID: 1843079553}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1524279694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1795727665366379017, guid: fa713de6f8f779948885329b6d4d6123, type: 3}
-  m_PrefabInstance: {fileID: 833058693}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1524279695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524279694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubesPerAxis: 0
-  explosionForce: 0
-  radius: 0
-  pointValueFactor: 0
 --- !u!1 &1535441275
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,7 +6045,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7795336, y: 1}
+    m_SensorSize: {x: 1.7772622, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -6481,6 +6460,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4860707106226985705, guid: fa713de6f8f779948885329b6d4d6123, type: 3}
   m_PrefabInstance: {fileID: 833058693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2054707015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054707014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubesPerAxis: 0
+  explosionForce: 0
+  radius: 0
+  pointValueFactor: 0
 --- !u!1 &2094265598
 GameObject:
   m_ObjectHideFlags: 3
