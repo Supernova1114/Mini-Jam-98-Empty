@@ -14,7 +14,7 @@ public class Explode : MonoBehaviour
 
     void Start()
     {
-        chunk = GameObject.Find("Chunk");
+        chunk = GameObject.Find("Player");
     }
 
     private void OnTriggerEnter(Collider other) 
