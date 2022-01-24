@@ -539,7 +539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -216, y: 84}
+  m_AnchoredPosition: {x: -215, y: 109}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869464994
@@ -564,12 +564,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Controls:
 
-    -Mouse Move + Space
+    (Space, then Space again to fire comet)
+
+    -Mouse Move
+    + Space
 
     -WASD or Arrow Keys + Space
 
-    -Controller
-    Left Joystick + Controller Jump'
+    -Controller Left Joystick + Controller
+    Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37b2b1da38d6b814aaaf7e4a25c0a1c3, type: 2}
   m_sharedMaterial: {fileID: 7057324806675326371, guid: 37b2b1da38d6b814aaaf7e4a25c0a1c3, type: 2}
