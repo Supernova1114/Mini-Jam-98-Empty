@@ -13,22 +13,16 @@ public class PointSystem : MonoBehaviour
     [SerializeField]
     private float changeInterval;
 
+    public static PointSystem instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         text.text = "0";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddPoints(1000);
-        }
-
-    }
+ 
 
     public void AddPoints(int value)
     {

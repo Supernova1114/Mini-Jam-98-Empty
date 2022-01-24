@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.42352942, g: 0.45490196, b: 0.5176471, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 8
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 7e716639ceffa804da136da750c9417e, type: 2}
   m_HaloStrength: 0.5
@@ -303,10 +303,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 89756317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubesPerAxis: 4
+  cubesPerAxis: 3
   explosionForce: 1000
   radius: 20
 --- !u!1 &90616133
@@ -728,10 +728,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 631699783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubesPerAxis: 6
+  cubesPerAxis: 3
   explosionForce: 1000
   radius: 20
 --- !u!1 &768362478
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 896348974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubesPerAxis: 3
@@ -1173,10 +1173,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 953583596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubesPerAxis: 4
+  cubesPerAxis: 3
   explosionForce: 1000
   radius: 20
 --- !u!1001 &1030644804
@@ -1905,10 +1905,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571234265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubesPerAxis: 4
+  cubesPerAxis: 3
   explosionForce: 1000
   radius: 20
 --- !u!1 &1579262730
@@ -2006,7 +2006,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7772926, y: 1}
+    m_SensorSize: {x: 1.7771261, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1940665562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6b92c1b04389f4586b5a5be425d1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8d0e0fa62571946a77cda6a26d2232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubesPerAxis: 3

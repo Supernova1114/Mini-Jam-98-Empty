@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c438697f85011164b8f5836ce4331104
   - enabled: 1
-    path: Assets/Scenes/Aden Scene.unity
+    path: Assets/Scenes/Aden scene.unity
     guid: a5359a3f090a0c64c80abb32faf487ca
   - enabled: 1
     path: Assets/Scenes/Lose Scene.unity
