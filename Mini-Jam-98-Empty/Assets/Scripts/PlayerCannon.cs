@@ -59,12 +59,9 @@ public class PlayerCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velocity = playerRB.velocity;
 
-        if (velocity.magnitude > 0)
-        {
-            transform.forward = velocity;
-        }
+        //print(thirdPovComponent.m_HorizontalAxis.Value);
+        
 
 
         if (cooldown <= 0)
@@ -84,19 +81,22 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.constraints = RigidbodyConstraints.FreezePosition;
                     playerRB.velocity = Vector3.zero;
 
-                    
-                    firstPovComponent.ForceCameraPosition(firstPersonVCam.transform.position, transform.rotation);
-                    firstPovComponent.m_HorizontalAxis.Value = 0;
-                    firstPovComponent.m_VerticalAxis.Value = 0;
 
+                    //Face main camera
+                    firstPovComponent.enabled = false;
+                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
+                    firstPovComponent.m_HorizontalAxis.Value = euler.y;
+                    firstPovComponent.m_VerticalAxis.Value = euler.x;
+                    firstPovComponent.enabled = true;
 
                     //Move to first person cam
-                    firstPersonVCam.Priority = 1;
                     thirdPersonVCam.Priority = -1;
+                    firstPersonVCam.Priority = 1;
+
+                    
 
                     meshRenderer.enabled = false;
 
-                    print("ASDLAS");
                 }
                 else
                 {
@@ -111,17 +111,26 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.constraints = RigidbodyConstraints.None;
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
 
-                    thirdPovComponent.ForceCameraPosition(thirdPersonVCam.transform.position, transform.rotation);
-                    thirdPovComponent.m_HorizontalAxis.Value = 0;
-                    thirdPovComponent.m_VerticalAxis.Value = 0;
+
+                    //Face main camera
+                    thirdPersonVCam.gameObject.SetActive(false);
+                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
+                    thirdPovComponent.m_HorizontalAxis.Value = euler.y;
+                    thirdPovComponent.m_VerticalAxis.Value = euler.x;
+                    thirdPersonVCam.gameObject.SetActive(true);
+
+
+
 
                     //Move to third person cam
-                    thirdPersonVCam.Priority = 1;
                     firstPersonVCam.Priority = -1;
+                    thirdPersonVCam.Priority = 1;
+
+
+
 
                     meshRenderer.enabled = true;
 
-                    print("HE");
 
                 }
 

@@ -204,8 +204,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90616133}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -371.20276, y: -96.42987, z: 180.9988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5554,7 +5554,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535441275}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5576,7 +5576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonVCam: {fileID: 521991643}
   firstPersonVCam: {fileID: 1678963269}
-  cooldownInit: 5
+  cooldownInit: 1
   cannonForce: 1500
   rechargeParticles: {fileID: 451664887}
 --- !u!54 &1535441281
@@ -6314,8 +6314,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101174668}
-  m_LocalRotation: {x: 0.18532363, y: 0, z: 0, w: 0.9826776}
-  m_LocalPosition: {x: -371.20276, y: -90.42987, z: 180.9988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6482,15 +6482,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665441, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -371.20276
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665441, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -96.42987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665441, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 180.9988
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665441, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6522,7 +6522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665442, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665442, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_ApplyAfter
@@ -6530,7 +6530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665443, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665443, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_Offset.z
@@ -6546,11 +6546,19 @@ PrefabInstance:
       objectReference: {fileID: 90616134}
     - target: {fileID: 1826043825354665446, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.776719
+      value: 1.7789116
       objectReference: {fileID: 0}
     - target: {fileID: 1826043825354665447, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
       propertyPath: m_Name
       value: 3rdPersonVCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826043825869581628, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
+      propertyPath: m_VerticalRecentering.m_enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826043825869581628, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
+      propertyPath: m_HorizontalRecentering.m_enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dede1a1255319941bcab75f59729a18, type: 3}
@@ -7206,6 +7214,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1535441279}
+    - target: {fileID: 8258865171543660210, guid: 3363535baf1cedf4682d6c7a22f72404, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7789116
+      objectReference: {fileID: 0}
     - target: {fileID: 8258865171543660213, guid: 3363535baf1cedf4682d6c7a22f72404, type: 3}
       propertyPath: m_Name
       value: 1stPersonVCam
