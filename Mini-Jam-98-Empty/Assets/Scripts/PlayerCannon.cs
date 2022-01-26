@@ -12,6 +12,9 @@ public class PlayerCannon : MonoBehaviour
     private CinemachinePOV firstPovComponent;
     private CinemachinePOV thirdPovComponent;
 
+    [SerializeField]
+    private GameObject followPlayerVelocityObj;
+
 
 
     [SerializeField]
@@ -35,6 +38,7 @@ public class PlayerCannon : MonoBehaviour
     private bool rechargeFlag = false;
 
 
+
     void Start()
     {
         firstPovComponent = firstPersonVCam.GetCinemachineComponent<CinemachinePOV>();
@@ -52,6 +56,7 @@ public class PlayerCannon : MonoBehaviour
         thirdPersonVCam.Priority = 1;
         firstPersonVCam.Priority = -1;
 
+        
 
 
     }
@@ -82,12 +87,19 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.velocity = Vector3.zero;
 
 
+                    
+
                     //Face main camera
-                    firstPovComponent.enabled = false;
+                    firstPersonVCam.enabled = false;
                     Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
                     firstPovComponent.m_HorizontalAxis.Value = euler.y;
                     firstPovComponent.m_VerticalAxis.Value = euler.x;
-                    firstPovComponent.enabled = true;
+                    firstPersonVCam.enabled = true;
+
+                    thirdPovComponent.enabled = false;
+                    thirdPovComponent.m_HorizontalAxis.Value = euler.y;
+                    thirdPovComponent.m_VerticalAxis.Value = euler.x;
+                    thirdPovComponent.enabled = true;
 
                     //Move to first person cam
                     thirdPersonVCam.Priority = -1;
@@ -112,21 +124,27 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
 
 
+                    //Disable recenter of other cam
+                    firstPovComponent.m_HorizontalRecentering.RecenterNow();
+
                     //Face main camera
-                    thirdPersonVCam.gameObject.SetActive(false);
+                    thirdPersonVCam.enabled = false;
                     Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
                     thirdPovComponent.m_HorizontalAxis.Value = euler.y;
                     thirdPovComponent.m_VerticalAxis.Value = euler.x;
-                    thirdPersonVCam.gameObject.SetActive(true);
+                    thirdPersonVCam.enabled = true;
 
-
+                    firstPovComponent.enabled = false;
+                    firstPovComponent.m_HorizontalAxis.Value = euler.y;
+                    firstPovComponent.m_VerticalAxis.Value = euler.x;
+                    firstPovComponent.enabled = true;
 
 
                     //Move to third person cam
                     firstPersonVCam.Priority = -1;
                     thirdPersonVCam.Priority = 1;
 
-
+                    
 
 
                     meshRenderer.enabled = true;
