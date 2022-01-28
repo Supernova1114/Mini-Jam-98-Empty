@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 3026782755106554831, guid: 03d52f04c30b53c4da93bc60dc165a20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3026782755106554835, guid: 03d52f04c30b53c4da93bc60dc165a20, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -582,7 +586,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094345852}
-  m_LocalRotation: {x: 0.2886866, y: -0.4983121, z: 0.18041356, w: 0.7973682}
+  m_LocalRotation: {x: 0.28868666, y: -0.49831206, z: 0.18041351, w: 0.7973683}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -761,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vcam1: {fileID: 1340735079}
-  vcam3: {fileID: 0}
+  vcam3: {fileID: 1144289929}
 --- !u!65 &1216896121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1199,7 +1203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856662667}
-  m_LocalRotation: {x: 0.24860834, y: -0.5066805, z: 0.15536676, w: 0.8107589}
+  m_LocalRotation: {x: 0.24860834, y: -0.5066805, z: 0.15536675, w: 0.81075895}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
