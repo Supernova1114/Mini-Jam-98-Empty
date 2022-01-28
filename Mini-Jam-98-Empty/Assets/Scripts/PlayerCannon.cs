@@ -12,6 +12,10 @@ public class PlayerCannon : MonoBehaviour
     private CinemachinePOV firstPovComponent;
     private CinemachinePOV thirdPovComponent;
 
+    [SerializeField]
+    private FollowPlayerVelocity fpv;
+    [SerializeField]
+    private FollowTarget ft;
 
 
     [SerializeField]
@@ -35,6 +39,7 @@ public class PlayerCannon : MonoBehaviour
     private bool rechargeFlag = false;
 
 
+
     void Start()
     {
         firstPovComponent = firstPersonVCam.GetCinemachineComponent<CinemachinePOV>();
@@ -52,6 +57,7 @@ public class PlayerCannon : MonoBehaviour
         thirdPersonVCam.Priority = 1;
         firstPersonVCam.Priority = -1;
 
+        
 
 
     }
@@ -78,23 +84,20 @@ public class PlayerCannon : MonoBehaviour
                 {
                     inCannonState = true;
 
-                    playerRB.constraints = RigidbodyConstraints.FreezePosition;
+                    playerRB.constraints = RigidbodyConstraints.FreezeAll;
                     playerRB.velocity = Vector3.zero;
 
+                    cameraFollowersActive(false);
 
-                    //Face main camera
-                    firstPovComponent.enabled = false;
                     Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
                     firstPovComponent.m_HorizontalAxis.Value = euler.y;
                     firstPovComponent.m_VerticalAxis.Value = euler.x;
-                    firstPovComponent.enabled = true;
 
                     //Move to first person cam
                     thirdPersonVCam.Priority = -1;
                     firstPersonVCam.Priority = 1;
 
                     
-
                     meshRenderer.enabled = false;
 
                 }
@@ -108,24 +111,17 @@ public class PlayerCannon : MonoBehaviour
 
                     //print("FIRE!");
 
-                    playerRB.constraints = RigidbodyConstraints.None;
+                    playerRB.constraints = RigidbodyConstraints.FreezeRotation;
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
 
-
-                    //Face main camera
-                    thirdPersonVCam.gameObject.SetActive(false);
                     Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
                     thirdPovComponent.m_HorizontalAxis.Value = euler.y;
                     thirdPovComponent.m_VerticalAxis.Value = euler.x;
-                    thirdPersonVCam.gameObject.SetActive(true);
-
-
-
 
                     //Move to third person cam
                     firstPersonVCam.Priority = -1;
                     thirdPersonVCam.Priority = 1;
-
+                    cameraFollowersActive(true);
 
 
 
@@ -145,4 +141,11 @@ public class PlayerCannon : MonoBehaviour
 
 
     }
+
+    private void cameraFollowersActive(bool value)
+    {
+        fpv.shouldFollow = value;
+        ft.shouldFollow = value;
+    }
+
 }

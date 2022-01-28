@@ -6,7 +6,7 @@
 <tr>
 <td>
   
-Mini Jam 2022 - Empty | With limitation: Map needs to be procedurally generated. We missed the deadline by 20 minutes, and everything is spaghetti code ¯\\\_(ツ)_/¯  
+Mini Jam 2022 - Empty | With limitation: Make it a Roguelike (Minimum: Procedural Generation and Restart from Beginning) | It did not turn out much like a roguelike but it's a cool concept
 
 <img src="img/void (2).png" width=100%/>
 <img src="img/void (3).png" width=100%/>
