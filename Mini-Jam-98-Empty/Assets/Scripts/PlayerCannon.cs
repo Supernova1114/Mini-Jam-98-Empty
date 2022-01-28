@@ -87,20 +87,6 @@ public class PlayerCannon : MonoBehaviour
                     playerRB.velocity = Vector3.zero;
 
 
-                    
-
-                    //Face main camera
-                    firstPersonVCam.enabled = false;
-                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
-                    firstPovComponent.m_HorizontalAxis.Value = euler.y;
-                    firstPovComponent.m_VerticalAxis.Value = euler.x;
-                    firstPersonVCam.enabled = true;
-
-                    thirdPovComponent.enabled = false;
-                    thirdPovComponent.m_HorizontalAxis.Value = euler.y;
-                    thirdPovComponent.m_VerticalAxis.Value = euler.x;
-                    thirdPovComponent.enabled = true;
-
                     //Move to first person cam
                     thirdPersonVCam.Priority = -1;
                     firstPersonVCam.Priority = 1;
@@ -122,22 +108,6 @@ public class PlayerCannon : MonoBehaviour
 
                     playerRB.constraints = RigidbodyConstraints.None;
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
-
-
-                    //Disable recenter of other cam
-                    firstPovComponent.m_HorizontalRecentering.RecenterNow();
-
-                    //Face main camera
-                    thirdPersonVCam.enabled = false;
-                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
-                    thirdPovComponent.m_HorizontalAxis.Value = euler.y;
-                    thirdPovComponent.m_VerticalAxis.Value = euler.x;
-                    thirdPersonVCam.enabled = true;
-
-                    firstPovComponent.enabled = false;
-                    firstPovComponent.m_HorizontalAxis.Value = euler.y;
-                    firstPovComponent.m_VerticalAxis.Value = euler.x;
-                    firstPovComponent.enabled = true;
 
 
                     //Move to third person cam
