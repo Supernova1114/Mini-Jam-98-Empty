@@ -5113,8 +5113,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -180
-    m_MaxValue: 180
+    m_MinValue: 0
+    m_MaxValue: 360
     m_Wrap: 1
     m_Recentering:
       m_enabled: 0
@@ -5137,8 +5137,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
+    m_MinValue: 0
+    m_MaxValue: 360
     m_Wrap: 1
     m_Recentering:
       m_enabled: 0
@@ -5255,7 +5255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6300173246164802026, guid: fa713de6f8f779948885329b6d4d6123, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6300173246164802026, guid: fa713de6f8f779948885329b6d4d6123, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5617,6 +5617,7 @@ GameObject:
   - component: {fileID: 1109800686}
   - component: {fileID: 1109800689}
   - component: {fileID: 1109800688}
+  - component: {fileID: 1109800690}
   m_Layer: 0
   m_Name: ThirdPersonVCam
   m_TagString: Untagged
@@ -5662,8 +5663,8 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 660010011}
---- !u!4 &1109800687
-Transform:
+--- !u!224 &1109800687
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5675,8 +5676,13 @@ Transform:
   m_Children:
   - {fileID: 660010011}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109800688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,6 +5717,23 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 1.5, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
+--- !u!114 &1109800690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109800685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8c77a6c308a9e41851a1b2aee4bf04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputXName: Mouse X
+  inputYName: Mouse Y
+  recenterObj: {fileID: 90616133}
+  recenterInterp: 0.056
+  cooldownInit: 2
 --- !u!1 &1203842113
 GameObject:
   m_ObjectHideFlags: 0
