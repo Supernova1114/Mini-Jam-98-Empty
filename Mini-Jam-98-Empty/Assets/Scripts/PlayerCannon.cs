@@ -13,8 +13,9 @@ public class PlayerCannon : MonoBehaviour
     private CinemachinePOV thirdPovComponent;
 
     [SerializeField]
-    private GameObject followPlayerVelocityObj;
-
+    private FollowPlayerVelocity fpv;
+    [SerializeField]
+    private FollowTarget ft;
 
 
     [SerializeField]
@@ -83,16 +84,20 @@ public class PlayerCannon : MonoBehaviour
                 {
                     inCannonState = true;
 
-                    playerRB.constraints = RigidbodyConstraints.FreezePosition;
+                    playerRB.constraints = RigidbodyConstraints.FreezeAll;
                     playerRB.velocity = Vector3.zero;
 
+                    cameraFollowersActive(false);
+
+                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
+                    firstPovComponent.m_HorizontalAxis.Value = euler.y;
+                    firstPovComponent.m_VerticalAxis.Value = euler.x;
 
                     //Move to first person cam
                     thirdPersonVCam.Priority = -1;
                     firstPersonVCam.Priority = 1;
 
                     
-
                     meshRenderer.enabled = false;
 
                 }
@@ -106,15 +111,18 @@ public class PlayerCannon : MonoBehaviour
 
                     //print("FIRE!");
 
-                    playerRB.constraints = RigidbodyConstraints.None;
+                    playerRB.constraints = RigidbodyConstraints.FreezeRotation;
                     playerRB.AddForce(mainCamera.transform.forward.normalized * cannonForce);
 
+                    Vector3 euler = Quaternion.LookRotation(mainCamera.transform.forward).eulerAngles;
+                    thirdPovComponent.m_HorizontalAxis.Value = euler.y;
+                    thirdPovComponent.m_VerticalAxis.Value = euler.x;
 
                     //Move to third person cam
                     firstPersonVCam.Priority = -1;
                     thirdPersonVCam.Priority = 1;
+                    cameraFollowersActive(true);
 
-                    
 
 
                     meshRenderer.enabled = true;
@@ -133,4 +141,11 @@ public class PlayerCannon : MonoBehaviour
 
 
     }
+
+    private void cameraFollowersActive(bool value)
+    {
+        fpv.shouldFollow = value;
+        ft.shouldFollow = value;
+    }
+
 }
