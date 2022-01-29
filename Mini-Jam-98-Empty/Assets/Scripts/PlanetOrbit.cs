@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlanetOrbit : MonoBehaviour
 {
-    private const float G = 10.0f;
     public GameObject[] planets;
 
     //========================================================
@@ -61,7 +60,7 @@ public class PlanetOrbit : MonoBehaviour
                    Vector3 a_pos, Vector3 b_pos, float r)
     {
         a_rb.AddForce((b_pos - a_pos).normalized *  //   Add Force towards planet:
-            (G * (a_rb.mass * b_rb.mass)            //         G × (m1 × m2) 
+        (GameboxConst.G * (a_rb.mass * b_rb.mass)   //         G × (m1 × m2) 
                     / (r * r)));                    //        ̅ ̅ ̅ ̅ ̅ ̅ ̅r̅²̅ ̅ ̅ ̅ ̅ ̅ ̅ 
     }
 
@@ -77,7 +76,7 @@ public class PlanetOrbit : MonoBehaviour
         a.transform.LookAt(b.transform);
 
         // Make obj go wee woo wee woo you spin me right round baby right round
-        //     v       =                           sqrt((G *     M    ) / r)
-        a_rb.velocity += a.transform.right * Mathf.Sqrt((G * b_rb.mass) / r);
+        //     v       =                           sqrt((       G       *     M    ) / r)
+        a_rb.velocity += a.transform.right * Mathf.Sqrt((GameboxConst.G * b_rb.mass) / r);
     }
 }

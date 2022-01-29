@@ -8,7 +8,11 @@ public class CameraTest : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera vcam1;
     [SerializeField]
-    private CinemachineVirtualCamera vcam3;
+    private CinemachineFreeLook vcam3;
+    /*
+    private CinemachinePOV firstPovComponent;
+    private CinemachinePOV thirdPovComponent;
+    */
 
     private bool flag = true;
 
@@ -19,6 +23,10 @@ public class CameraTest : MonoBehaviour
 
         vcam1.Priority = 0;
         vcam3.Priority = 1;
+        /*
+        firstPovComponent = vcam1.GetCinemachineComponent<CinemachinePOV>();
+        thirdPovComponent = vcam3.GetCinemachineComponent<CinemachinePOV>();
+        */
     }
 
     // Update is called once per frame
@@ -31,12 +39,26 @@ public class CameraTest : MonoBehaviour
                 flag = false;
                 vcam1.Priority = 1;
                 vcam3.Priority = 0;
+
+                /*
+                Vector3 euler = Quaternion.LookRotation(vcam3.transform.forward).eulerAngles;
+
+                firstPovComponent.m_HorizontalAxis.Value = euler.y;
+                firstPovComponent.m_VerticalAxis.Value = euler.x;
+                */
             }
             else
             {
                 flag = true;
                 vcam1.Priority = 0;
                 vcam3.Priority = 1;
+
+                /*
+                Vector3 euler = Quaternion.LookRotation(vcam1.transform.forward).eulerAngles;
+                
+                thirdPovComponent.m_HorizontalAxis.Value = euler.y;
+                thirdPovComponent.m_VerticalAxis.Value = euler.x;
+                */
             }
         }
     }
