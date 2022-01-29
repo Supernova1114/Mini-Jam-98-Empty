@@ -5732,7 +5732,7 @@ MonoBehaviour:
   inputXName: Mouse X
   inputYName: Mouse Y
   recenterObj: {fileID: 90616133}
-  recenterInterp: 0.056
+  recenterInterp: 0.045
   cooldownInit: 2
 --- !u!1 &1203842113
 GameObject:

@@ -17,6 +17,7 @@ public class RecenterPovVCam : MonoBehaviour
     [Range(0.0f, 1.0f)]
     [SerializeField]
     private float recenterInterp;
+    private float currentInterp;
 
     private CinemachineVirtualCamera vCam;
     private CinemachinePOV povComponent;
@@ -71,6 +72,8 @@ public class RecenterPovVCam : MonoBehaviour
             {
                 recenterFlag = false;
                 isRecentering = true;
+
+                StartCoroutine("SetInterp");
             }
         }
         else
@@ -81,10 +84,13 @@ public class RecenterPovVCam : MonoBehaviour
 
         if (isRecentering)
         {
-            Vector3 targetForward = Quaternion.LookRotation(recenterObj.transform.forward).eulerAngles;
+            Vector3 currRotation = recenterObj.transform.rotation.eulerAngles;
 
-            float newXAxis = Mathf.Lerp(xAxis, targetForward.x, recenterInterp);
-            float newYAxis = Mathf.Lerp(yAxis, targetForward.y, recenterInterp);
+            //print(currRotation);
+
+            //For some reason switching x and y values makes it work
+            float newXAxis = Mathf.Lerp(xAxis, currRotation.y, currentInterp);
+            float newYAxis = Mathf.Lerp(yAxis, currRotation.x, currentInterp);
 
             povComponent.m_HorizontalAxis.Value = newXAxis;
             povComponent.m_VerticalAxis.Value = newYAxis;
@@ -98,4 +104,25 @@ public class RecenterPovVCam : MonoBehaviour
 
 
     }
+
+
+    private IEnumerator SetInterp()
+    {
+        //print("SetInterp");
+        currentInterp = recenterInterp;
+
+        yield return new WaitForSeconds(1f);
+
+        while (currentInterp < 0.99f)
+        {
+            print(currentInterp);
+            yield return new WaitForEndOfFrame();
+
+            currentInterp = Mathf.Lerp(currentInterp, 1.0f, 0.05f);
+        }
+
+        print("Success!"); 
+        currentInterp = 1;
+    }
+
 }
