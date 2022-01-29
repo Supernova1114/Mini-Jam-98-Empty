@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03582074, g: 0.035693206, b: 0.03582074, a: 1}
+  m_IndirectSpecularColor: {r: 0.03582374, g: 0.03571772, b: 0.03582374, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789116, y: 1}
+    m_SensorSize: {x: 1.7774682, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5222,7 +5222,7 @@ PrefabInstance:
       objectReference: {fileID: 1535441275}
     - target: {fileID: 8225766907045439578, guid: ee5620867eae8a44e8346c77a2a21a0f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8225766907045439581, guid: ee5620867eae8a44e8346c77a2a21a0f, type: 3}
       propertyPath: m_Name
@@ -5654,7 +5654,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789116, y: 1}
+    m_SensorSize: {x: 1.7774682, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5853,6 +5853,7 @@ GameObject:
   - component: {fileID: 1535441281}
   - component: {fileID: 1535441282}
   - component: {fileID: 1535441280}
+  - component: {fileID: 1535441283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6081,6 +6082,33 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1535441283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535441275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8de6175edb0b84dab11d9af889fc6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetList:
+  - {fileID: 1875505781}
+  - {fileID: 1875505780}
+  - {fileID: 1875505779}
+  - {fileID: 1875505778}
+  - {fileID: 1875505777}
+  - {fileID: 1875505776}
+  - {fileID: 1875505775}
+  - {fileID: 1875505774}
+  - {fileID: 1875505773}
+  - {fileID: 1875505772}
+  - {fileID: 1875505771}
+  - {fileID: 1875505770}
+  - {fileID: 2054707014}
+  - {fileID: 1860786964}
 --- !u!1 &1546528153
 GameObject:
   m_ObjectHideFlags: 0

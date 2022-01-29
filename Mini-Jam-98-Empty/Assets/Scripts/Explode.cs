@@ -89,11 +89,11 @@ public class Explode : MonoBehaviour
 
         if (isPos)
         {
-            xz_min = chunk.transform.position.x - 200;
-            xz_max = chunk.transform.position.x + 200;
+            xz_min = chunk.transform.position.x - GameboxConst.RespawnDistX;
+            xz_max = chunk.transform.position.x + GameboxConst.RespawnDistX;
 
-            y_min = chunk.transform.position.x - 100;
-            y_max = chunk.transform.position.x + 100;
+            y_min = chunk.transform.position.x - GameboxConst.RespawnDistY;
+            y_max = chunk.transform.position.x + GameboxConst.RespawnDistY;
         }
 
         return new Vector3(Random.Range(xz_min, xz_max), 
