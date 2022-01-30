@@ -23,7 +23,7 @@ public class ProceduralGeneration : MonoBehaviour
         {
             float dist = Vector3.Distance(a.transform.position, transform.position);
 
-            if (dist > GameboxConst.RespawnDistX)
+            if (dist > GameboxConst.RespawnDistXZ)
             {
                 a.GetComponent<Explode>().RepositionPlanet();
             }

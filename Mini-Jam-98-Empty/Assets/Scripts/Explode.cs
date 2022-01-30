@@ -13,17 +13,19 @@ public class Explode : MonoBehaviour
     public int pointValueFactor = 1;
     private float playerX;
     private float playerY;
+    private float playerZ;
 
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
     }
 
     void FixedUpdate()
     {
         playerX = player.transform.position.x;
         playerY = player.transform.position.y;
+        playerZ = player.transform.position.z;
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -91,23 +93,28 @@ public class Explode : MonoBehaviour
 
     private Vector3 GenerateNewVector(bool isPos)
     {
-        float xz_min = 0;
-        float xz_max = 360;
+        float x_min = 0;
+        float x_max = 360;
         float y_min = 0;
         float y_max = 360;
+        float z_min = 0;
+        float z_max = 360;
 
         if (isPos)
         {
-            xz_min = playerX - GameboxConst.RespawnDistX;
-            xz_max = playerX + GameboxConst.RespawnDistX;
+            x_min = playerX - GameboxConst.RespawnDistXZ;
+            x_max = playerX + GameboxConst.RespawnDistXZ;
 
             y_min = playerY - GameboxConst.RespawnDistY;
             y_max = playerY + GameboxConst.RespawnDistY;
+
+            z_min = playerZ - GameboxConst.RespawnDistXZ;
+            z_max = playerZ + GameboxConst.RespawnDistXZ;
         }
 
-        return new Vector3(Random.Range(xz_min, xz_max), 
+        return new Vector3(Random.Range(x_min, x_max), 
                            Random.Range(y_min, y_max), 
-                           Random.Range(xz_min, xz_max));
+                           Random.Range(z_min, z_max));
     }
 
 }
