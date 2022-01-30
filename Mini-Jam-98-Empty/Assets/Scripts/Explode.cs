@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    private GameObject player;
     public int cubesPerAxis = 3;
     public float explosionForce = 1000f;
     public float radius = 20f;
@@ -14,11 +14,18 @@ public class Explode : MonoBehaviour
     private float playerX;
     private float playerY;
 
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void FixedUpdate()
     {
         playerX = player.transform.position.x;
         playerY = player.transform.position.y;
     }
+
     private void OnTriggerEnter(Collider other) 
     {
         if (other.tag == "Player")
