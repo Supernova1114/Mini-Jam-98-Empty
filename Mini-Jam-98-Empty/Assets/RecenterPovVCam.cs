@@ -115,13 +115,13 @@ public class RecenterPovVCam : MonoBehaviour
 
         while (currentInterp < 0.99f)
         {
-            print(currentInterp);
+            //print(currentInterp);
             yield return new WaitForEndOfFrame();
 
             currentInterp = Mathf.Lerp(currentInterp, 1.0f, 0.05f);
         }
 
-        print("Success!"); 
+        //print("Success!"); 
         currentInterp = 1;
     }
 
