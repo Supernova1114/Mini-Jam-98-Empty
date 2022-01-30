@@ -41,6 +41,7 @@ public class RecenterPovVCam : MonoBehaviour
     {
         vCam = GetComponent<CinemachineVirtualCamera>();
         povComponent = vCam.GetCinemachineComponent<CinemachinePOV>();
+        StartCoroutine("CenterOnStart");
     }
 
     // Update is called once per frame
@@ -123,6 +124,16 @@ public class RecenterPovVCam : MonoBehaviour
 
         //print("Success!"); 
         currentInterp = 1;
+    }
+
+    private IEnumerator CenterOnStart()
+    {
+        currentInterp = 1;
+        isRecentering = true;
+        yield return new WaitForSeconds(1);
+        isRecentering = false;
+        currentInterp = recenterInterp;
+
     }
 
 }

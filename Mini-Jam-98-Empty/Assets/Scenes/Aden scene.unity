@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03582374, g: 0.03571772, b: 0.03582374, a: 1}
+  m_IndirectSpecularColor: {r: 0.03582074, g: 0.035693206, b: 0.03582074, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774682, y: 1}
+    m_SensorSize: {x: 1.7789116, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5654,7 +5654,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774682, y: 1}
+    m_SensorSize: {x: 1.7789116, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5733,7 +5733,7 @@ MonoBehaviour:
   inputYName: Mouse Y
   recenterObj: {fileID: 90616133}
   recenterInterp: 0.045
-  cooldownInit: 2
+  cooldownInit: 5
 --- !u!1 &1203842113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,7 +5955,7 @@ MonoBehaviour:
   firstPersonVCam: {fileID: 70137609}
   fpv: {fileID: 90616135}
   ft: {fileID: 1719566621}
-  cooldownInit: 1
+  cooldownInit: 3
   cannonForce: 1500
   rechargeParticles: {fileID: 451664887}
 --- !u!54 &1535441281
