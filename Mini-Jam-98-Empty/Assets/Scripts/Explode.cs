@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour
 {
-    private GameObject chunk;
+    [SerializeField] private GameObject player;
     public int cubesPerAxis = 3;
     public float explosionForce = 1000f;
     public float radius = 20f;
     private int time = 10;
 
     public int pointValueFactor = 1;
+    private float playerX;
+    private float playerY;
 
-    void Start()
+    void FixedUpdate()
     {
-        chunk = GameObject.Find("Player");
+        playerX = player.transform.position.x;
+        playerY = player.transform.position.y;
     }
-
     private void OnTriggerEnter(Collider other) 
     {
         if (other.tag == "Player")
@@ -89,11 +91,11 @@ public class Explode : MonoBehaviour
 
         if (isPos)
         {
-            xz_min = chunk.transform.position.x - GameboxConst.RespawnDistX;
-            xz_max = chunk.transform.position.x + GameboxConst.RespawnDistX;
+            xz_min = playerX - GameboxConst.RespawnDistX;
+            xz_max = playerX + GameboxConst.RespawnDistX;
 
-            y_min = chunk.transform.position.x - GameboxConst.RespawnDistY;
-            y_max = chunk.transform.position.x + GameboxConst.RespawnDistY;
+            y_min = playerY - GameboxConst.RespawnDistY;
+            y_max = playerY + GameboxConst.RespawnDistY;
         }
 
         return new Vector3(Random.Range(xz_min, xz_max), 
